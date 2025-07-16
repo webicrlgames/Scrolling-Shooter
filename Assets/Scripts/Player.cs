@@ -75,14 +75,17 @@ public class Player : MonoBehaviour
             GameOver();
         }
     }
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            RecibirDanio();
+        }
+    }
     void GameOver()
     {
+        gameOverUI.SetActive(true);
         Debug.Log("¡Game Over!");
-        if (gameOverUI != null)
-        {
-            gameOverUI.SetActive(true);
-        }
         Time.timeScale = 0f;
     }
 }

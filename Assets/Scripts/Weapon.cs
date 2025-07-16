@@ -11,18 +11,10 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (bulletPrefab == null )
-        {
-            Debug.LogWarning("Faltan referencias en el arma");
-            return;
-        }
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+        Vector3 direccionDisparo = firePoint.right;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direccionDisparo));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = firePoint.forward * bulletSpeed;
-        }
+        rb.velocity = direccionDisparo * bulletSpeed;
     }
 }
 
