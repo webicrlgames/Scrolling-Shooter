@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
                 targetDirection = new Vector3(moveDirection.x, 0, 0);
             }
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            Quaternion rotationOffset = Quaternion.Euler(0f, 90f, 0f);
+            Quaternion rotationOffset = Quaternion.Euler(180f, 90f, 180f);
             Quaternion finalRotation = targetRotation * rotationOffset;
 
             arma.rotation = Quaternion.Slerp(arma.rotation, finalRotation, Time.deltaTime * 10f);
