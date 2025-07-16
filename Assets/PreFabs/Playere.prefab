@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1624281612333028788}
   - component: {fileID: 8532601471646229804}
   - component: {fileID: 7883012339027042137}
+  - component: {fileID: 2525030421974616705}
   - component: {fileID: 7706909905253806670}
   - component: {fileID: -7341641193787625983}
   - component: {fileID: -5985978541551544415}
@@ -90,6 +91,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2525030421974616705
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663200734068683519}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &7706909905253806670
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +179,8 @@ MonoBehaviour:
   WalkSpeed: 10
   arma: {fileID: 3316713022528687720, guid: fc1c4dd5658f9dd47ab0fc4d7f7618f9, type: 3}
   armaSpawn: {fileID: -2803129773687749376, guid: fc1c4dd5658f9dd47ab0fc4d7f7618f9, type: 3}
+  vida: 10
+  gameOverUI: {fileID: 0}
 --- !u!114 &4649874709061343242
 MonoBehaviour:
   m_ObjectHideFlags: 0

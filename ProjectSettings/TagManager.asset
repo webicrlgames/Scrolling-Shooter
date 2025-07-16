@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - BSpawn
+  - Enemy
+  - Limite
+  - Bullet
   layers:
   - Default
   - TransparentFX

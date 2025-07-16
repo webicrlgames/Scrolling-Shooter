@@ -5,30 +5,23 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public GameObject firePoint;
-    public float bulletSpeed = 20f;
+    public Transform firePoint;
+
+    public float bulletSpeed = 10f;
 
     public void Shoot()
     {
-        firePoint = GetComponentsInChildren<Transform>()
-                .FirstOrDefault(t => t.CompareTag("BSpawn"))?.gameObject;
-
-        if (firePoint == null)
+        if (bulletPrefab == null )
         {
-            Debug.LogError("El firePoint no está asignado.");
+            Debug.LogWarning("Faltan referencias en el arma");
             return;
         }
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        Debug.Log("Disparando...");
-        if (bulletPrefab != null )
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Debug.Log("Disparo");
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.linearVelocity = firePoint.transform.forward * bulletSpeed;
-            }
+            rb.velocity = firePoint.forward * bulletSpeed;
         }
     }
 }

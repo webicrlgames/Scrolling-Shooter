@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public float WalkSpeed;
     public Transform arma;
     public Weapon armaSpawn;
+    public int vida = 3;
+    public GameObject gameOverUI;
     public void OnMove(InputAction.CallbackContext ctx)
     {
         m_moveAmt = ctx.ReadValue<Vector2>();
@@ -61,5 +63,26 @@ public class Player : MonoBehaviour
         {
             armaSpawn.Shoot();
         }
+    }
+    public void RecibirDanio()
+    {
+        vida -= 1;
+        Debug.Log("Vida restante: " + vida);
+
+        if (vida <= 0)
+        {
+            vida = 0;
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("¡Game Over!");
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+        Time.timeScale = 0f;
     }
 }
